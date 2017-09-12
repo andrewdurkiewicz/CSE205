@@ -46,7 +46,39 @@ public class Assignment4
            // matches one of the case statement
            switch (choice)
             {
-             case 'A':   //Add an employee
+             case 'A': 
+             	System.out.print("Enter First Name: ");
+             	String first_name = scan.next();
+
+             	System.out.print("Enter Last Name: ");
+             	String last_name = scan.next();
+
+             	System.out.print("Enter Age: ");
+             	String age = scan.next();
+
+             	System.out.print("Enter Salary: ");
+             	String salary = scan.next();
+
+             	System.out.print("What is the Address?\nStreet Name: ");
+             	String street_name = scan.nextLine();
+              scan.next();
+
+             	System.out.print("City: ");
+             	String city = scan.next();
+
+             	System.out.print("State: ");
+             	String state = scan.next();
+
+             	System.out.print("Zipcode: ");
+             	String zip = scan.next();
+
+             	//return full address as a string:
+             	String address = street_name + " | " + city + "," + " " + state + " " + zip;
+             	e1.setEmployeeInfo(first_name, last_name, address, age, salary);
+
+             	
+
+               //Add an employee
                /*read first_name, last_name, age, address, base salary
                   then call the appropriate methods of the employee instance e1 to
                   set those values */
@@ -98,3 +130,4 @@ public class Assignment4
                         "?\t\tDisplay Menu Again\n\n");
   }
 }
+
