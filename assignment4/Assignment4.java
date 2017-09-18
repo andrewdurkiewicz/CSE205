@@ -54,14 +54,16 @@ public class Assignment4
              	String last_name = scan.next();
 
              	System.out.print("Enter Age: ");
-             	String age = scan.next();
+             	int age = scan.nextInt();
 
              	System.out.print("Enter Salary: ");
-             	String salary = scan.next();
+             	double baseSalary = scan.nextDouble();
 
-             	System.out.print("What is the Address?\nStreet Name: ");
-             	String street_name = scan.nextLine();
-              scan.next();
+             	System.out.print("Current Street Address: ");
+              //I had to do this, scan.next was buggy. wouldn't scan the whole line
+              String streetNum = scan.next();
+             	String streetsname = scan.nextLine();
+              String street_name = streetNum + streetsname;
 
              	System.out.print("City: ");
              	String city = scan.next();
@@ -70,16 +72,17 @@ public class Assignment4
              	String state = scan.next();
 
              	System.out.print("Zipcode: ");
-             	String zip = scan.next();
+             	int zip = scan.nextInt();
 
              	//return full address as a string:
-             	String address = street_name + " | " + city + "," + " " + state + " " + zip;
-             	e1.setEmployeeInfo(first_name, last_name, address, age, salary);
+              e1.setName(first_name,last_name);
+              e1.setAge(age);
+              e1.setBaseSalary(baseSalary);
+             	e1.setAddress(street_name,city,state,zip);
 
-             	
 
                //Add an employee
-               /*read first_name, last_name, age, address, base salary
+               /*read first_name, last_name, age, addr;ess, base salary
                   then call the appropriate methods of the employee instance e1 to
                   set those values */
 
@@ -89,7 +92,27 @@ public class Assignment4
                System.out.print(e1);
                break;
 
-             case 'C': // change address
+             case 'C': 
+               System.out.print("Please Note: You are preforming an address change for " + e1.getName() + "\n");
+               System.out.print("New Street Address: ");
+               String street_numbers = scan.next();
+               String street_letters = scan.nextLine();
+               String change_street_name = street_numbers + street_letters;
+
+               System.out.print("City: ");
+               String change_city = scan.next();
+
+               System.out.print("State: ");
+               String change_state = scan.next();
+
+               System.out.print("Zipcode: ");
+               int change_zip = scan.nextInt();
+               e1.setAddress(change_street_name,change_city,change_state, change_zip);
+
+
+
+
+                  // change address
                   /* read street name, city, state, zipcode and call appropriate
                      methods of e1 to change the address */
 
@@ -111,7 +134,8 @@ public class Assignment4
 
          else
           {
-           System.out.print("Unknown action\n");
+           System.out.print("Your action has been recorded.\n");
+           System.out.print("------------------------------\n\n");
           }
 
 

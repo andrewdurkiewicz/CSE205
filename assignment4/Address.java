@@ -4,6 +4,13 @@ public class Address
 {
 	private String streetName, city, state;
 	private int zipcode;
+
+	public Address(){
+		this.streetName = streetName;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+	}
 	public Address(String streetName, String city, String state, int zipcode)
 	{
 		this.streetName = streetName;
@@ -12,12 +19,7 @@ public class Address
 		this.zipcode = zipcode;
 		
 	}
-	public Address(){
-		this.streetName = streetName;
-		this.city = city;
-		this.state = state;
-		this.zipcode = zipcode;
-	}
+
 	public void changeAddress(String streetName, String city, String state, int zipcode)
 	{
 		this.streetName = streetName;
@@ -27,6 +29,6 @@ public class Address
 	}
 	public String toString()
 	{
-		return "Address: " + streetName + "\n" + city + ", " + state + " " + zipcode;
+		return "Address: " + streetName + " | " + city + ", " + state + " " + zipcode + "\n\n";
 	}
 }

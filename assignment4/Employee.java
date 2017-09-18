@@ -7,30 +7,51 @@ public class Employee
 	private double baseSalary;
 	private Address address;
 
-	public Employee(String first_name, String last_name, String age, double baseSalary)
+	public Employee()
 	{
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.age = age;
 		this.baseSalary = baseSalary;
-		this.address = new Address()
-		
+		this.address = new Address();
+
 	}
-	public Employee(){
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.age = age;
-		this.baseSalary = baseSalary;
-	}
-	public void setEmployeeInfo(String first_name, String last_name, String age, double baseSalary)
+	public String getName()
 	{
 		this.first_name = first_name;
 		this.last_name = last_name;
-		this.age = age;
+		return first_name + " " + last_name;
+	}
+	public String getSalary()
+	{
 		this.baseSalary = baseSalary;
+		return Double.toString(baseSalary);
+	}
+	public Address getAddress()
+	{
+		this.address = address;
+		return address;
+	}
+	public void setName(String first_name, String last_name)
+	{
+		this.first_name = first_name;
+		this.last_name = last_name;
+	}
+	public void setAge(int age)
+	{
+		this.age = age;
+	}
+	public void setBaseSalary(double baseSalary)
+	{
+		this.baseSalary = baseSalary;
+	}
+	public void setAddress(String streetname, String city, String state, int zipcode)
+	{
+		address.changeAddress(streetname, city, state, zipcode);
+
 	}
 	public String toString()
 	{
-		return "nothing";
+		return "Employee Name: " + getName() + " | Age: " + age + " | Annual Salary: $" + getSalary() + "\n" + getAddress();
 	}
 }
