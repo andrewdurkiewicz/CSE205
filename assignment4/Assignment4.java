@@ -94,6 +94,11 @@ public class Assignment4
 
              case 'C': 
                System.out.print("Please Note: You are preforming an address change for " + e1.getName() + "\n");
+               System.out.print("The Current Address is listed as: " + e1.getAddress() + "\n");
+               System.out.print("Do you wish to continue with the address update? Y/n: ");
+               char answer = scan.next().charAt(0);
+               if (answer == 'Y')
+               {
                System.out.print("New Street Address: ");
                String street_numbers = scan.next();
                String street_letters = scan.nextLine();
@@ -108,6 +113,13 @@ public class Assignment4
                System.out.print("Zipcode: ");
                int change_zip = scan.nextInt();
                e1.setAddress(change_street_name,change_city,change_state, change_zip);
+               break;
+               }
+               else
+               {
+                break;
+               }
+
 
 
 
@@ -117,7 +129,7 @@ public class Assignment4
                      methods of e1 to change the address */
 
 
-             break;
+
 
              case 'Q':   //Quit
                break;
