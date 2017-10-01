@@ -1,0 +1,31 @@
+import javax.swing.*; // to use Japplet, JButton
+import java.awt.*;    // to import FlowLayout manager
+
+
+public class FlowLayoutExample extends JFrame
+ {
+  public FlowLayoutExample()
+   {
+
+    JPanel panel = new JPanel();
+    panel.setLayout(new FlowLayout());
+
+    // create three buttons
+    JButton button1 = new JButton("Button1");
+    JButton button2 = new JButton("Button2");
+    JButton button3 = new JButton("Button3");
+
+    panel.add(button1);
+    panel.add(button2);
+    panel.add(button3);
+
+    add(panel);
+
+    final int FRAME_WIDTH = 600;
+	final int FRAME_HEIGHT = 400;
+	setSize(FRAME_WIDTH, FRAME_HEIGHT);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+  }
+
+}
