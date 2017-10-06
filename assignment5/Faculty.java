@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+
 public class Faculty extends Employee
 {
 	private String department;
-	private ArrayList<String> classesTeach = new ArrayList<String>();
+	private ArrayList<String> classesTeach;
 
-	public Faculty(String fname, String lname, String phone, double rate, double scale, String department)
+	public Faculty(String fname, String lname, String phone, double rate, int scale, String department)
 	{
-		super(fname,lname,phone,payScale,rate);
+		super(fname,lname,phone,scale,rate);
 		this.department = department; 
 	}
 
@@ -16,7 +18,7 @@ public class Faculty extends Employee
 
 	public void calculatePay()
 	{
-		return (payRate/payScale) + 500*classesTeach.size();
+		monthlyPay =  (payRate/payScale) + 500*classesTeach.size();
 	}
 	public String toString()
 	{

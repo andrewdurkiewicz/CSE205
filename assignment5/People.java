@@ -11,15 +11,11 @@ public class People
 		first_name = fName;
 		last_name = lName;
 		phoneNumber = phone;
-		payRate = 0.0;
-
+		monthlyPay = 0;
+		payRate = 0;
 	}
 
-	public calculatePay()
-	{
-		monthlyPay = 0.0;
 
-	}
 
 	public String getName()
 	{

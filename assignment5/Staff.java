@@ -15,6 +15,6 @@ public class Staff extends Employee
 
 	public void calculatePay()
 	{
-		return payRate/payScale;
+		monthlyPay = payRate/payScale;
 	}
 }

@@ -14,9 +14,9 @@ public class Student extends People
 	{
 		this.gpa = gpa;
 	}
-	public void changeMajor(String)
+	public void changeMajor(String choice)
 	{
-		this.major = major;
+		this.major = choice;
 
 	}
 	public String toString()
