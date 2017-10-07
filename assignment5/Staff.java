@@ -1,16 +1,19 @@
+import java.text.DecimalFormat;
 public class Staff extends Employee
 {
 	private String title;
 
-	public Staff(String fName,String lName,String phone,double rate,int scale,String title)
+	public Staff(String first_name ,String last_name,String phoneNumber,double payRate,int payScale,String title)
 	{
-		super(fName, lName, phone, scale, rate);
+		super(first_name, last_name, phoneNumber, payScale, payRate);
 		this.title = title;
 	}
 
 	public String toString()
 	{
-		return first_name+last_name;
+		DecimalFormat formatter = new DecimalFormat("#0.00");
+		return "\n\n" + first_name + " " + last_name + " | Title: " + title + "| Salary: " + formatter.format(monthlyPay);
+	
 	}
 
 	public void calculatePay()

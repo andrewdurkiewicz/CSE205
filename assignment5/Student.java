@@ -7,7 +7,7 @@ public class Student extends People
 	{
 		super(first_name,last_name,phoneNumber);
 		this.major = major;
-		gpa = 0.0;
+		this.gpa = 0.0;
 
 	}
 	public void setGPA(double gpa)
@@ -21,7 +21,7 @@ public class Student extends People
 	}
 	public String toString()
 	{
-		return super.toString() + " | " + major;
+		return super.toString() + " | " + major + "GPA: " + gpa;
 
 	}
 }

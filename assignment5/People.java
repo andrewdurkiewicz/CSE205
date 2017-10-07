@@ -8,14 +8,12 @@ public class People
 
 	public People(String first_name, String last_name, String phoneNumber)
 	{
-		first_name = fName;
-		last_name = lName;
-		phoneNumber = phone;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.phoneNumber = phoneNumber;
 		monthlyPay = 0;
 		payRate = 0;
 	}
-	
-
 
 
 	public String getName()
@@ -25,7 +23,7 @@ public class People
 
 	public String toString()
 	{
-		return first_name + " " + last_name + "| Phone: " + phoneNumber;
+		return getName() + "| Phone: " + phoneNumber;
 	}
 
 
