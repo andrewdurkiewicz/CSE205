@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class Faculty extends Employee
 {
@@ -21,11 +21,12 @@ public class Faculty extends Employee
 	public void calculatePay()
 	{
 		this.classesTeach = classesTeach;
-		monthlyPay =  (payRate/payScale) + 500*classesTeach.size();
+		monthlyPay =  payRate/(1.0*payScale) + 500.0*classesTeach.size();
 	}
 	public String toString()
 	{
-		DecimalFormat formatter = new DecimalFormat("#0.00");
-		return "\n\n" + first_name + " " + last_name + " | Teaching: " + classesTeach + " | Salary: " + formatter.format(monthlyPay);
+		monthlyPay = payRate/(1.0*payScale) + 500.0*classesTeach.size();
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		return first_name + " " + last_name + " | Teaching: " + classesTeach + " | Salary: " + formatter.format(monthlyPay);
 	}
 }

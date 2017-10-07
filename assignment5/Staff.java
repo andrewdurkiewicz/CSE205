@@ -1,4 +1,4 @@
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
 public class Staff extends Employee
 {
 	private String title;
@@ -11,13 +11,14 @@ public class Staff extends Employee
 
 	public String toString()
 	{
-		DecimalFormat formatter = new DecimalFormat("#0.00");
-		return "\n\n" + first_name + " " + last_name + " | Title: " + title + "| Salary: " + formatter.format(monthlyPay);
+		double sal = ((double) payRate)/(payScale);
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		return  first_name + " " + last_name + " | Title: " + title + "| Salary: " + formatter.format(sal);
 	
 	}
 
 	public void calculatePay()
 	{
-		monthlyPay = payRate/payScale;
+		monthlyPay = payRate/(1.0*payScale);
 	}
 }

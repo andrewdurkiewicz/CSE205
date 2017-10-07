@@ -50,6 +50,7 @@ public class University {
 
         	 s1.setGPA(gpa);
         	 people.add(s1);
+        	 scan.nextLine();
 
 
 			// add a Student here
@@ -158,7 +159,13 @@ public class University {
 
 			break;
 		case 'E':
-			people.getName();
+			for(int i = 0; i<people.size(); i++)
+			{
+				People p1 = people.get(i);
+				System.out.println(p1.getName());
+
+			}
+
 			// display people info
 			/* display the fist name and the last name of each person at school
 			 *
@@ -174,7 +181,7 @@ public class University {
 				if(people.get(i) instanceof Student)
 				{
 					System.out.println("Student " + stud_count +": " + people.get(i));
-					stud_count++
+					stud_count++;
 				}
 			}
 
@@ -240,7 +247,7 @@ public class University {
 	                        "A\t\tAdd a Student\n" +
 	                        "B\t\tAdd a Staff\n" +
 	                        "C\t\tAdd a Faculty\n"+
-	                        "D\t\tDisplay University  Info\n" +
+	                        "D\t\tDisplay University Info\n" +
 	                        "E\t\tDisplay University People Info\n" +
 	                        "F\t\tDisplay University Student Info\n" +
 	                        "G\t\tDisplay University Employee Info\n" +
