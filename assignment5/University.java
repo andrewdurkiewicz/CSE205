@@ -111,9 +111,11 @@ public class University {
         	 department = scan.nextLine();
 
         	 Faculty f1 = new Faculty(first_name,last_name,phoneNumber,payRate, payScale,department);
+        	 scan.nextLine();
 
         	 System.out.println("Enter the faculty course: ");
         	 course = scan.nextLine();
+
         	 f1.addClass(course);
         	 people.add(f1);
 			// add a Faculty here
@@ -128,6 +130,26 @@ public class University {
 			break;
 
 		case 'D':
+			int st = 0;
+			int s = 0;
+			int f = 0;
+			for(int i = 0; i<people.size(); i++)
+			{
+				if(people.get(i) instanceof Student)
+				{
+					st++;
+				}
+				if(people.get(i) instanceof Staff)
+				{
+					s++;
+				}
+
+				if(people.get(i) instanceof Faculty)
+				{
+					f++;
+				}
+			}
+			System.out.println("University: " + univ_Name + " | Location: " + location + " | Students: " + st + " | Staff: " + s + " | Faculty: " + f);
 			// display university info
 			/* university name, location, number of students, number of faculty and number of
 			 *staff
@@ -136,6 +158,7 @@ public class University {
 
 			break;
 		case 'E':
+			people.getName();
 			// display people info
 			/* display the fist name and the last name of each person at school
 			 *
@@ -145,6 +168,16 @@ public class University {
 			break;
 
 		case 'F':
+			int stud_count = 1;
+			for(int i = 0; i<people.size(); i++)
+			{
+				if(people.get(i) instanceof Student)
+				{
+					System.out.println("Student " + stud_count +": " + people.get(i));
+					stud_count++
+				}
+			}
+
 			// display Student info
 			/* display fist name, last name, and the major of each student
 			 * java has a construct called instanceof. That construct can determine
@@ -157,6 +190,15 @@ public class University {
 			break;
 
 		case 'G':
+			int emp_count = 1;
+			for(int i = 0; i<people.size(); i++)
+			{
+				if(people.get(i) instanceof Staff || people.get(i) instanceof Faculty)
+				{
+					System.out.println("Employee " + emp_count +": " + people.get(i));
+					emp_count++;
+				}
+			}
 			// display Employee info
 			/* display fist name, last name, pay rate, and monthly pay of each employee
 			 *

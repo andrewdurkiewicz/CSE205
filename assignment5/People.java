@@ -23,7 +23,7 @@ public class People
 
 	public String toString()
 	{
-		return getName() + "| Phone: " + phoneNumber;
+		return getName() + " | Phone: " + phoneNumber;
 	}
 
 
