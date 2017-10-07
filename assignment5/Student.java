@@ -21,7 +21,7 @@ public class Student extends People
 	}
 	public String toString()
 	{
-		return first_name+last_name+phoneNumber+major+gpa;
+		return super.toString() + " | " + major;
 
 	}
 }

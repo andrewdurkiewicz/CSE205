@@ -5,23 +5,25 @@ public class Faculty extends Employee
 	private String department;
 	private ArrayList<String> classesTeach;
 
-	public Faculty(String fname, String lname, String phone, double rate, int scale, String department)
+	public Faculty(String first_name, String last_name, String phoneNumber, double payRate, int payScale, String department)
 	{
-		super(fname,lname,phone,scale,rate);
+		super(first_name,last_name,phoneNumber,payScale,payRate);
 		this.department = department; 
 	}
 
 	public void addClass(String newClass)
 	{
+		this.classesTeach = classesTeach;
 		classesTeach.add(newClass);
 	}
 
 	public void calculatePay()
 	{
+		this.classesTeach = classesTeach;
 		monthlyPay =  (payRate/payScale) + 500*classesTeach.size();
 	}
 	public String toString()
 	{
-		return first_name+last_name+classesTeach;
+		return first_name + " " + last_name + "| Phone: " + phoneNumber + classesTeach + monthlyPay;
 	}
 }

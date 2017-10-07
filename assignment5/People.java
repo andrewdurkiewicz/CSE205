@@ -6,7 +6,7 @@ public class People
 	protected double payRate;
 	protected double monthlyPay;
 
-	public People(String fName, String lName, String phone)
+	public People(String first_name, String last_name, String phoneNumber)
 	{
 		first_name = fName;
 		last_name = lName;
@@ -14,6 +14,7 @@ public class People
 		monthlyPay = 0;
 		payRate = 0;
 	}
+	
 
 
 

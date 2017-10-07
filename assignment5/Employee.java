@@ -2,12 +2,8 @@ public class Employee extends People
 {
 	protected int payScale;
 
-	public Employee(String fName, String lName, String phone,int payScale,double rate)
+	public Employee(String first_name,String last_name,String phoneNumber,int payScale,double payRate)
 	{
-		super(fName,lName,phone);
-		payScale = 0;
-
-
-
+		super(first_name,last_name,phoneNumber);
 	}
 }
