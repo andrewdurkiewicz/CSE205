@@ -3,12 +3,19 @@ public class University {
 
 	public static void main(String args[])
 	{
-		String univ_Name, location;
+		String univ_Name, location, first_name, last_name, phoneNumber, title, major, department, course;
+		double gpa, payRate;
+		int payScale;
 		ArrayList<People> people = new ArrayList<People>();
 		char choice = 'A';
 		String line;
 		Scanner scan = new Scanner(System.in);
 		// read the name and the location of the university here
+		System.out.print("What is the University Name: ");
+		univ_Name = scan.nextLine();
+
+		System.out.print("Where is it located: ");
+		location = scan.nextLine();
 
 
 	do{
@@ -24,6 +31,27 @@ public class University {
 		switch(choice)
 		{
 		case 'A':
+        	 System.out.println("Enter first name: ");
+        	 first_name = scan.nextLine();
+        	 
+        	 System.out.println("Enter last name: ");
+        	 last_name = scan.nextLine();
+
+        	 System.out.println("Enter phone number: ");
+        	 phoneNumber = scan.nextLine();
+
+        	 System.out.println("Enter major: ");
+        	 major = scan.nextLine();
+
+        	 Student s1 = new Student(first_name,last_name,phoneNumber,major);
+
+        	 System.out.println("What is their GPA: ");
+        	 gpa = scan.nextDouble();
+
+        	 s1.setGPA(gpa);
+        	 people.add(s1);
+
+
 			// add a Student here
 			/* read the first name, last name, phone number, major as parameters and then call the
 			 * constructor of the Student class to create the instance
@@ -33,6 +61,27 @@ public class University {
 
 			break;
 		case 'B':
+        	 System.out.println("Enter first name: ");
+        	 first_name = scan.nextLine();
+        	 
+        	 System.out.println("Enter last name: ");
+        	 last_name = scan.nextLine();
+
+        	 System.out.println("Enter phone number: ");
+        	 phoneNumber = scan.nextLine();
+
+        	 System.out.println("Enter pay rate (Example: 10.23): ");
+        	 payRate = scan.nextDouble();
+
+        	 System.out.println("Enter pay scale (9 or 12 months): ");
+        	 payScale = scan.nextInt();
+
+             System.out.println("Enter title: ");
+        	 title = scan.nextLine();
+
+        	 Staff staff1 = new Staff(first_name,last_name,phoneNumber,payRate, payScale, title);
+        	 people.add(staff1);
+
 			// add a Staff here
 			/* read the first name, last name, phone number, payRate, payScale, and title and then call the
 			 * constructor of the Staff class to create the instance
@@ -43,6 +92,30 @@ public class University {
 
 			break;
 		case 'C':
+			 System.out.println("Enter first name: ");
+        	 first_name = scan.nextLine();
+        	 
+        	 System.out.println("Enter last name: ");
+        	 last_name = scan.nextLine();
+
+        	 System.out.println("Enter phone number: ");
+        	 phoneNumber = scan.nextLine();
+
+        	 System.out.println("Enter pay rate (Example: 10.23): ");
+        	 payRate = scan.nextDouble();
+
+        	 System.out.println("Enter pay scale (9 or 12 months): ");
+        	 payScale = scan.nextInt();
+
+        	 System.out.println("Enter the department: ");
+        	 department = scan.nextLine();
+
+        	 Faculty f1 = new Faculty(first_name,last_name,phoneNumber,payRate, payScale,department);
+
+        	 System.out.println("Enter the faculty course: ");
+        	 course = scan.nextLine();
+        	 f1.addClass(course);
+        	 people.add(f1);
 			// add a Faculty here
 			/* read the first name, last name, phone number, payRate, payScale, and department and then call the
 			 * constructor of the Faculty class to create the instance
