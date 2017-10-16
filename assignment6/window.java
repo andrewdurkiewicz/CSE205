@@ -90,17 +90,17 @@ public class window extends JFrame
 		@Override
 		public void keyPressed(KeyEvent e)
 		{
+			analysis();
 
 		}
 		@Override
 		public void keyReleased(KeyEvent e)
 		{
-			analysis();
 		}
 		@Override
 		public void keyTyped(KeyEvent e)
 		{
-
+			analysis();
 		}
 	}
 
@@ -186,15 +186,21 @@ public class window extends JFrame
 	public void analysis()
 	{
 			String textInField = inputDisplay.getText();
-			int charcount = textInField.replaceAll("\\s", "").length();
+
+			int charcount = textInField.replaceAll("\\s+", "").length();
 			int wordcount = textInField.length() - charcount;
 			int vowels = textInField.replaceAll("[^aeiouAEIOU]", "").length();
 			String Char_toString = Integer.toString(charcount);
 			String Words_toString = Integer.toString(wordcount);
 			String vowels_toString = Integer.toString(vowels);
-			String d = "-";
 
 
+			if (textInField.length() == 0)
+			{
+				char_result = "-";
+				word_result = "-";
+				vowel_result = "-";
+			}
 			if (char_c.isSelected())
 			{
 				char_result = Char_toString;
