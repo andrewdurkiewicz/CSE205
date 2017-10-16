@@ -10,7 +10,6 @@ public class University {
 		char choice = 'A';
 		String line;
 		Scanner scan = new Scanner(System.in);
-		// read the name and the location of the university here
 		System.out.print("What is the University Name: ");
 		univ_Name = scan.nextLine();
 
@@ -31,6 +30,7 @@ public class University {
 		switch(choice)
 		{
 		case 'A':
+
         	 System.out.println("Enter first name: ");
         	 first_name = scan.nextLine();
         	 
@@ -52,16 +52,10 @@ public class University {
         	 people.add(s1);
         	 scan.nextLine();
 
+        	 break;
 
-			// add a Student here
-			/* read the first name, last name, phone number, major as parameters and then call the
-			 * constructor of the Student class to create the instance
-			 * then read the gpa, call setGpa method of the student to set the gpa
-			 * finally add the student instance to the people list
-			 */
-
-			break;
 		case 'B':
+
         	 System.out.println("Enter first name: ");
         	 first_name = scan.nextLine();
         	 
@@ -83,15 +77,8 @@ public class University {
         	 Staff staff1 = new Staff(first_name,last_name,phoneNumber,payRate, payScale, title);
         	 people.add(staff1);
 
-			// add a Staff here
-			/* read the first name, last name, phone number, payRate, payScale, and title and then call the
-			 * constructor of the Staff class to create the instance
-			 * finally add the Staff instance to the people list
-			*/
+        	 break;
 
-
-
-			break;
 		case 'C':
 			 System.out.println("Enter first name: ");
         	 first_name = scan.nextLine();
@@ -104,12 +91,14 @@ public class University {
 
         	 System.out.println("Enter pay rate (Example: 10.23): ");
         	 payRate = scan.nextDouble();
+        	 System.out.println(payRate);
 
         	 System.out.println("Enter pay scale (9 or 12 months): ");
         	 payScale = scan.nextInt();
 
         	 System.out.println("Enter the department: ");
         	 department = scan.nextLine();
+        	 scan.nextLine();
 
         	 Faculty f1 = new Faculty(first_name,last_name,phoneNumber,payRate, payScale,department);
         	 scan.nextLine();
@@ -119,18 +108,10 @@ public class University {
 
         	 f1.addClass(course);
         	 people.add(f1);
-			// add a Faculty here
-			/* read the first name, last name, phone number, payRate, payScale, and department and then call the
-			 * constructor of the Faculty class to create the instance
-			 * read list of courses the instructor read and call the addClass method
-			 * of the faculty to add classes
-			 * finally add the Faculty instance to the people list
-			*/
-
-
-			break;
+        	 break;
 
 		case 'D':
+			// In order to count the amount each instance appears, we use the following variables:
 			int st = 0;
 			int s = 0;
 			int f = 0;
@@ -151,14 +132,11 @@ public class University {
 				}
 			}
 			System.out.println("University: " + univ_Name + " | Location: " + location + " | Students: " + st + " | Staff: " + s + " | Faculty: " + f);
-			// display university info
-			/* university name, location, number of students, number of faculty and number of
-			 *staff
-			 */
-
 
 			break;
+
 		case 'E':
+
 			for(int i = 0; i<people.size(); i++)
 			{
 				People p1 = people.get(i);
@@ -166,15 +144,10 @@ public class University {
 
 			}
 
-			// display people info
-			/* display the fist name and the last name of each person at school
-			 *
-			 */
-
-
 			break;
 
 		case 'F':
+
 			int stud_count = 1;
 			for(int i = 0; i<people.size(); i++)
 			{
@@ -185,18 +158,10 @@ public class University {
 				}
 			}
 
-			// display Student info
-			/* display fist name, last name, and the major of each student
-			 * java has a construct called instanceof. That construct can determine
-			 * the object instance type
-			 * example:
-			 *  String str = new String("hello");
-			 *  if(str instanceof String) will be evaluated to true
-			 */
-
 			break;
 
 		case 'G':
+			//Display Employee info
 			int emp_count = 1;
 			for(int i = 0; i<people.size(); i++)
 			{
@@ -206,17 +171,13 @@ public class University {
 					emp_count++;
 				}
 			}
-			// display Employee info
-			/* display fist name, last name, pay rate, and monthly pay of each employee
-			 *
-			 */
-
 			break;
 
 		case 'Q':
 			// quit the program
 
 			break;
+
 		case '?':
 			// display the menu again
 
@@ -241,7 +202,7 @@ public class University {
 
 	}
 	 public static void printMenu()
-	   {
+	  {
 	     System.out.print("Choice\t\tAction\n" +
 	                        "------\t\t------\n" +
 	                        "A\t\tAdd a Student\n" +

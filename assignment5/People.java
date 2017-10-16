@@ -11,8 +11,8 @@ public class People
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.phoneNumber = phoneNumber;
-		monthlyPay = 0;
-		payRate = 0;
+		this.monthlyPay = monthlyPay;
+		this.payRate = payRate;
 	}
 
 

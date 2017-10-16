@@ -33,15 +33,19 @@ public class window extends JFrame
 	private JCheckBox char_c;
 	private JCheckBox vow_c;
 	private ActionListener listener;
+	private KeyListener klistener;
 
 	public window()
 	{
+		klistener = new MyKeyListener();
+
 		//input for analysis
 		inputDisplay = new JTextArea(); //input text box
 		inputDisplay.setEditable(true); //make editable
 		inputDisplay.setFont(new Font("default",Font.PLAIN, 24));
 		inputDisplay.setLineWrap(true);
 		inputDisplay.setWrapStyleWord(true);//Wraps words to avoid horizontal scroll.
+		inputDisplay.addKeyListener(klistener);
 		JScrollPane scrollpane = new JScrollPane(inputDisplay);
 
 		//output after the analysis
@@ -61,7 +65,9 @@ public class window extends JFrame
 
 
 		listener = new ChoiceListener();
-		
+
+
+
 		createControlPanel();
 		setSize(FRAME_WIDTH,FRAME_HEIGHT);
 
@@ -74,6 +80,33 @@ public class window extends JFrame
 	  {  
 	  	setNewSize();
 	  }
+	}
+	class MyKeyListener implements KeyListener
+	{
+		@Override
+		public void keyPressed(KeyEvent e)
+		{
+			/*//String textInField = inputDisplay.getText();
+			String[] noSpace = textInField.split(" ");
+			int vowels = textInField.replaceAll("[^aeiouAEIOU]", "").length();
+			System.out.println(noSpace.length);
+			System.out.println(vowels);*/
+		}
+		@Override
+		public void keyReleased(KeyEvent e)
+		{
+			String textInField = inputDisplay.getText();
+			int charcount = textInField.replaceAll("\\s", "").length();
+			int wordcount = textInField.length() - charcount;
+			int vowels = textInField.replaceAll("[^aeiouAEIOU]", "").length();
+			System.out.println("Character Count: " + charcount + " Word Count: "+ wordcount + " Vowels: "+ vowels);
+
+		}
+		@Override
+		public void keyTyped(KeyEvent e)
+		{
+
+		}
 	}
 
 	public void createControlPanel()
@@ -153,6 +186,10 @@ public class window extends JFrame
 
 		String message = inputDisplay.getText();
 		inputDisplay.setFont(new Font("default",Font.PLAIN,size));
+
+	}
+	public void analysis()
+	{
 
 	}
 
