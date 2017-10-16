@@ -34,6 +34,9 @@ public class window extends JFrame
 	private JCheckBox vow_c;
 	private ActionListener listener;
 	private KeyListener klistener;
+	private String char_result = "";
+	private String word_result = "";
+	private String vowel_result = "";
 
 	public window()
 	{
@@ -49,7 +52,7 @@ public class window extends JFrame
 		JScrollPane scrollpane = new JScrollPane(inputDisplay);
 
 		//output after the analysis
-		outputDisplay = new JTextField(); //input text box
+		outputDisplay = new JTextField("Words: " + word_result + "     |     Characters: " + char_result + "     |     Vowels: " + vowel_result); //input text box
 		outputDisplay.setEditable(false); //make editable
 		//outputDisplay.setLineWrap(true);
 		//outputDisplay.setWrapStyleWord(true);//Wraps words to avoid horizontal scroll.
@@ -79,6 +82,7 @@ public class window extends JFrame
 	  public void actionPerformed(ActionEvent event)
 	  {  
 	  	setNewSize();
+	  	analysis();
 	  }
 	}
 	class MyKeyListener implements KeyListener
@@ -86,21 +90,12 @@ public class window extends JFrame
 		@Override
 		public void keyPressed(KeyEvent e)
 		{
-			/*//String textInField = inputDisplay.getText();
-			String[] noSpace = textInField.split(" ");
-			int vowels = textInField.replaceAll("[^aeiouAEIOU]", "").length();
-			System.out.println(noSpace.length);
-			System.out.println(vowels);*/
+
 		}
 		@Override
 		public void keyReleased(KeyEvent e)
 		{
-			String textInField = inputDisplay.getText();
-			int charcount = textInField.replaceAll("\\s", "").length();
-			int wordcount = textInField.length() - charcount;
-			int vowels = textInField.replaceAll("[^aeiouAEIOU]", "").length();
-			System.out.println("Character Count: " + charcount + " Word Count: "+ wordcount + " Vowels: "+ vowels);
-
+			analysis();
 		}
 		@Override
 		public void keyTyped(KeyEvent e)
@@ -190,7 +185,30 @@ public class window extends JFrame
 	}
 	public void analysis()
 	{
+			String textInField = inputDisplay.getText();
+			int charcount = textInField.replaceAll("\\s", "").length();
+			int wordcount = textInField.length() - charcount;
+			int vowels = textInField.replaceAll("[^aeiouAEIOU]", "").length();
+			String Char_toString = Integer.toString(charcount);
+			String Words_toString = Integer.toString(wordcount);
+			String vowels_toString = Integer.toString(vowels);
+			String d = "-";
 
+
+			if (char_c.isSelected())
+			{
+				char_result = Char_toString;
+			}
+			if (word_c.isSelected())
+			{
+				word_result = Words_toString;
+			}
+			if (vow_c.isSelected())
+			{
+				vowel_result = vowels_toString;
+			}
+
+			outputDisplay.setText("Words: " + word_result + "     |     Characters: " + char_result + "     |     Vowels: " + vowel_result);
 	}
 
 }
