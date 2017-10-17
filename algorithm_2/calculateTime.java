@@ -3,41 +3,40 @@ import java.util.Arrays;
 public class calculateTime
 {
 
-	public static float findSelectionTime(int a)
+	public static long findSelectionTime(int a)
 	{
-		int thisarray[] = ArrayUtil.randomIntArray(a*10000,100);
+		int thisarray[] = ArrayUtil.randomIntArray(a,100);
 		StopWatch t = new StopWatch();
 		t.start();
 		SelectionSorter.sort(thisarray);
 		t.stop();
 		return t.getElapsedTime();
 	}
-	public static float findMergeTime(int a)
+	public static long findMergeTime(int[] a)
 	{
-		int thisarray[] = ArrayUtil.randomIntArray(a*10000,100);
-		StopWatch t = new StopWatch();
-		t.start();
-		MergeSorter.sort(thisarray);
-		t.stop();
-		return t.getElapsedTime();
+		StopWatch m = new StopWatch();
+		m.start();
+		MergeSorter.sort(a);
+		m.stop();
+		return m.getElapsedTime();
 	}
-	public static float findQuickTime(int a)
+	public static long findQuickTime(int a)
 	{
-		int thisarray[] = ArrayUtil.randomIntArray(a*10000,100);
-		StopWatch t = new StopWatch();
-		t.start();
+		int thisarray[] = ArrayUtil.randomIntArray(a,100);
+		StopWatch q = new StopWatch();
+		q.start();
 		quickSort.qsort(thisarray,0,(a*10000)-1);
-		t.stop();
-		return t.getElapsedTime();
+		q.stop();
+		return q.getElapsedTime();
 	}
-	public static float findArraySort(int a)
+	public static long findArraySort(int a)
 	{
-		int thisarray[] = ArrayUtil.randomIntArray(a*10000,100);
-		StopWatch t = new StopWatch();
-		t.start();
+		int thisarray[] = ArrayUtil.randomIntArray(a,100);
+		StopWatch as = new StopWatch();
+		as.start();
 		Arrays.sort(thisarray);
-		t.stop();
-		return t.getElapsedTime();
+		as.stop();
+		return as.getElapsedTime();
 	}
 
 }

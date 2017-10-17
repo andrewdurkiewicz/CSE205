@@ -15,7 +15,7 @@ public class SelectionSortTimer
 
       // Construct random array
 
-      int[] a = ArrayUtil.randomIntArray(i, 100);
+      int[] a = ArrayUtil.randomIntArray(n, 100);
 
       // Use stopwatch to time selection sort
 
