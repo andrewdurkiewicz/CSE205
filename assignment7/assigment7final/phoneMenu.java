@@ -17,24 +17,26 @@ public class phoneMenu
 			{
 				case 1:
 				
-				
-				pm.listCallsMade();
+				System.out.println("What is the destination number you wish to inquire about? Enter in the form 'xxx-xxx-xxxx', x = number");
+				String answer = scan.next();
+
+				pm.listIfInstance(answer);
 				break;
 
 				case 2:
-				System.out.println("case2");
+				pm.findLongest();
 				break;
 
 				case 3:
-				System.out.println("case3");
+				pm.findShortest();
 				break;
 
 				case 4:
-				System.out.println("case 4");
+				pm.organizeSort();
 				break;
 
 				case 5:
-				System.out.println("case 5");
+				pm.bill();
 				break;
 
 				case 6:
@@ -68,9 +70,25 @@ public class phoneMenu
 		cust = new Customer();
 	}
 
-	public static void listCallsMade()
+	public static void listIfInstance(String newInstance)
 	{
-		cust.listCalls();
+
+		cust.findInstance(newInstance);
 	}
 
+	public static void findLongest()
+	{
+		cust.findLongestCall();
+	}
+	public static void findShortest()
+	{
+		cust.findShortestCall();
+	}
+	public static void organizeSort()
+	{
+		cust.sortCallsDuration();
+	}
+	public static void bill(){
+		cust.finalizeBill();
+	}
 }
