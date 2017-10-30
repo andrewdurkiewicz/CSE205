@@ -40,6 +40,7 @@ public class phoneMenu
 				break;
 
 				case 6:
+				System.exit(0);
 				break;
 			}
 			op = pm.menu();

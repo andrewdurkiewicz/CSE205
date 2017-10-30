@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.*;
 import java.io.*;
+import java.text.NumberFormat;
 
 
 public class Customer
@@ -8,6 +9,7 @@ public class Customer
 	ArrayList<phoneRecord> customers;
 	ArrayList<Integer> durations;
 	PrintWriter writer;
+	NumberFormat format;
 	public Customer()
 	{
 		//customers = new ArrayList<phoneRecord>();
@@ -120,7 +122,11 @@ public class Customer
 			sum = sum + customers.get(i).getCost();
 			writer.println(customers.get(i));
 		}
-		writer.println(sum);
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
+
+		writer.println(formatter.format(sum));
+		writer.close();
 	}
 	catch (FileNotFoundException exception)
      {
