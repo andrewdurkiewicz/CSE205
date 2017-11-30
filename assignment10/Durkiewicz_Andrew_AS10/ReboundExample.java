@@ -1,13 +1,8 @@
-package assignment10;
-
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.ButtonPanel;
-
 
 public class ReboundExample
 {
-
    //-----------------------------------------------------------------
    //  Presents up a frame with a control panel and a panel that
    //  changes color as the sliders are adjusted.

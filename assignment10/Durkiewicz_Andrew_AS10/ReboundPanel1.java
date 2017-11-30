@@ -1,5 +1,3 @@
-package assignment10;
-
 //Represents the primary panel for the Rebound applet.
 
 import java.awt.*;
@@ -9,7 +7,7 @@ import javax.swing.*;
 public class ReboundPanel1 extends JPanel
 {
 private final int DIAMETER = 35;
-int DELAY = 40;
+int DELAY = 20;
 ButtonPanel b;
 
 private Timer timer;

@@ -1,5 +1,3 @@
-package assignment10;
-
 //Represents the primary panel for the Rebound applet.
 
 import java.awt.*;

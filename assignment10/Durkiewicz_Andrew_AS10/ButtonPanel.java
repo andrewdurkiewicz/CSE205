@@ -1,5 +1,3 @@
-package assignment10;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -8,20 +6,20 @@ import javax.swing.event.*;
 public class ButtonPanel extends JPanel
 {
    private JPanel colorPanel;
-  // private JSlider rSlider;
    private JLabel rLabel;
    private JButton speedUp;
    private JButton speedDown;
    private int red;
    private JButton rButton;
+   private int speed;
 
 
   public ButtonPanel()
   {
-        //setBackground (Color.black);
-	  		  red = 20; //default red value
+	  		  red = 20; 
+	  		  speed = 20;
 
-			  rLabel = new JLabel("Ball Value: " + red);
+			  rLabel = new JLabel("Ball Speed: " + red);
 			  rLabel.setAlignmentX (Component.CENTER_ALIGNMENT);
 			  speedUp = new JButton();
 			  speedUp.setText("SPEED UP");
@@ -38,7 +36,7 @@ public class ButtonPanel extends JPanel
 			
 			  colorPanel = new JPanel();
 			  colorPanel.setPreferredSize (new Dimension (100, 50));
-			  colorPanel.setBackground (new Color (red, 0, 0));
+			  colorPanel.setBackground (new Color (speed, 0, 0));
 			  setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));
 			  add(rLabel);
 			  add(buttonPanel);
@@ -56,7 +54,10 @@ public class ButtonPanel extends JPanel
       {
     	  return red;
       }
-
+      public int getSpeed()
+      {
+    	  return speed;
+      }
 
 
     //  Represents the action listener for the timer.
@@ -66,17 +67,45 @@ public class ButtonPanel extends JPanel
          //  of movement whenever the timer fires an action event.
          public void actionPerformed (ActionEvent event)
          {
-           if (event.getSource()== speedUp)
+      
+
+           if (event.getSource()== speedDown)
            {
-        	   red = getValue() + 1;
+        	   if(getSpeed() == 0)
+        	   {
+        		   red = 40;
+        		   speed = 0;
+        		   rLabel.setText("Cannot Go Down! Minimum Speed is: " + speed);
+        	   }
+        	   else {
+            	   red = getValue() + 1;
+            	   speed = getSpeed() - 1;
+                   rLabel.setText ("Ball Speed: " + speed);
+        		   
+        	   }
+
+
            }
-           if (event.getSource() == speedDown)
+           
+           if (event.getSource() == speedUp)
            {
-        	   red = getValue() - 1;
+               if (getValue() == 0)
+               {
+            	   red = 0;
+            	   int s = 40;
+            	   rLabel.setText("Cannot Go up! Maximum Ball Speed is: " + s);
+            	   
+               }
+               else
+               {
+            	   red = getValue() - 1;
+            	   speed = getSpeed() + 1;
+                   rLabel.setText ("Ball Speed: " + speed);
+
+               }
            }
          
-         rLabel.setText ("Ball Value: " + red);
-         colorPanel.setBackground (new Color (red, 0, 0));
+         colorPanel.setBackground (new Color (speed, 0, 0));
          repaint();
          }
      }
