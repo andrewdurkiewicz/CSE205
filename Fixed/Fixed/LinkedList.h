@@ -2,29 +2,12 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-class T
-{
-private:
-	string name;
-	string address;
-	double rent;
-public:
-	T();
-	T(string addName, string addAddress, double addRent);
-	string getName();
-	string getAddress();
-	double getRent();
-	void setName(string newName);
-	void setAddress(string newAddress);
-	void setRent(string newRent);
-
-};
-
 template<class T>
 class Node
 {

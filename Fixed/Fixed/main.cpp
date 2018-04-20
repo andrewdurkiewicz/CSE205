@@ -3,19 +3,25 @@
 #include <stdlib.h>
 #include <string>
 using namespace std;
+struct T
+{
+	string name;
+	string address;
+	double rent;
+};
 
 
 
 int main()
 {
-	T data7 = T("Entry7", "842 N harvy lane", 123.5);
-	T data6 = T("Entry6", "842 N harvy lane", 123.5);
-	T data5 = T("Entry5", "842 N harvy lane", 123.5);
-	T data4 = T("Entry4", "842 N harvy lane", 123.5);
-	T data3 = T("Entry3", "842 N harvy lane", 432.24);
-	T data2 = T("Entry2", "842 N harvy lane", 123.4);
-	T data1 = T("Entry1", "842 N harvy lane", 8454.3);
-	T dataTest = T("TEST", "TEST", 000.03);
+	T data7 = { "Entry7", "842 N harvy lane", 123.5 };
+	T data6 = { "Entry6", "842 N harvy lane", 123.5 };
+	T data5 = { "Entry5", "842 N harvy lane", 123.5 };
+	T data4 = { "Entry4", "842 N harvy lane", 123.5 };
+	T data3 = { "Entry3", "842 N harvy lane", 432.24 };
+	T data2 = { "Entry2", "842 N harvy lane", 123.4 };
+	T data1 = { "Entry1", "842 N harvy lane", 8454.3 };
+	T dataTest = { "TEST", "TEST", 000.03 };
 
 	linkedlist<T> list = linkedlist<T>();
 	list.addToFront(data7);
@@ -29,13 +35,13 @@ int main()
 
 
 
-	cout << list.removeFromEnd().getName() << endl;
-	cout << list.removeFromEnd().getName() << endl;
-	cout << list.removeFromEnd().getName() << endl;
-	cout << list.removeFromEnd().getName() << endl;
-	cout << list.removeFromEnd().getName() << endl;
-	cout << list.removeFromEnd().getName() << endl;
-	cout << list.removeFromEnd().getName() << endl;
+	cout << list.removeFromEnd().name << endl;
+	cout << list.removeFromEnd().name << endl;
+	cout << list.removeFromEnd().name << endl;
+	cout << list.removeFromEnd().name << endl;
+	cout << list.removeFromEnd().name << endl;
+	cout << list.removeFromEnd().name << endl;
+	cout << list.removeFromEnd().name << endl;
 
 	//cout << list.removeAtIndex(2).name << endl;
 	//cout << list.removeFromFront().name << endl;
