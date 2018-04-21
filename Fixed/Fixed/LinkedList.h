@@ -18,7 +18,6 @@ private:
 public:
 	Node(); //declare instance
 	Node(T inData);
-	~Node();
 
 	//setters
 	void setNext(Node<T> *node);
@@ -43,11 +42,11 @@ inline Node<T>::Node(T inData)
 	next = NULL;
 }
 
-template<class T>
-inline Node<T>::~Node()
-{
-	next = NULL;
-}
+
+
+
+
+
 
 template<class T>
 inline void Node<T>::setNext(Node<T>* node)
@@ -100,12 +99,10 @@ public:
 	int IndexOf(T data);
 	T retrieveFront();
 	T retrieve(int index);
-	//toarray
+	T* toarray();
 	void empty();
 	int length();
 	bool doesListExist();
-
-
 };
 
 
@@ -121,7 +118,6 @@ template<class T>
 inline linkedlist<T>::~linkedlist()
 {
 	this->empty();
-	delete this;
 }
 
 template<class T>
@@ -216,7 +212,7 @@ inline void linkedlist<T>::insertAfterCurrent(T data)
 template<class T>
 inline T linkedlist<T>::removeCurrent()
 {
-
+	
 	T nodeData = curr->getData();
 	
 	if (curr == head)
@@ -240,7 +236,7 @@ inline T linkedlist<T>::removeCurrent()
 		}
 		//isolate the node
 		previous->setNext(remove->getNext());
-		remove->~Node();
+		remove->setNext(NULL);
 
 		return nodeData;
 	}
@@ -253,11 +249,11 @@ inline T linkedlist<T>::removeCurrent()
 template<class T>
 inline T linkedlist<T>::removeAtIndex(int index)
 {
-	//Node<T>* tmp = head;
+	Node<T>* tmp = head;
 	curr = head;
 	for (int i = 0; i <= index; i++)
 	{
-		curr = curr->getNext();
+		tmp = tmp->getNext();
 	}
 	T thisdata =  removeCurrent();
 	return thisdata;
@@ -270,7 +266,7 @@ inline T linkedlist<T>::removeFromFront()
 	T nodeData = head->getData();
 	Node<T>* remove = head;
 	head = head->getNext(); //move head over one to isolate the deleted node
-	remove->~Node();
+	remove->setNext(NULL);
 	return nodeData;
 
 }
@@ -286,7 +282,7 @@ inline T linkedlist<T>::removeFromEnd()
 	}
 	T thisdata = remove->getData();
 	tail = curr;
-	remove->~Node();
+	remove->setNext(NULL);
 	return thisdata;
 }
 
@@ -295,7 +291,7 @@ inline void linkedlist<T>::removeFirst(T data)
 {
 	Node<T>* remove = head;
 	head = head->getNext(); //move head over one to isolate the deleted node
-	remove->~Node();
+	remove->setNext(NULL);
 }
 template<class T>
 inline void linkedlist<T>::removeAll(T data)
@@ -367,37 +363,57 @@ inline T linkedlist<T>::retrieveFront()
 template<class T>
 inline T linkedlist<T>::retrieve(int index)
 {
-	curr = head;
-	if (length() < index)
+	Node<T>* tmp2 = head;
+	for (int i = 0; i < index; i++)
 	{
-		cout << "not enough elements";
+		tmp2 = tmp2->getNext();
 	}
-	else
+	return tmp2->getData();
+
+}
+
+template<class T>
+inline T* linkedlist<T>::toarray()
+{
+	T* array;
+	array = new T[length()];
+	Node<T>* tmp = head;
+	int mylength = length();
+	for (int i = 0; i < mylength ; i++)
 	{
-		for (int i = 0; i++; i < index)
+		if (tmp->getNext() != NULL)
 		{
-			nextNode();
+			tmp = tmp->getNext();
 		}
-		return curr;
+		else
+		{
+			tmp = tail;
+		}
+		array[i] = retrieve(i);
+
 	}
+	return array;
 }
 
 template<class T>
 inline void linkedlist<T>::empty()
 {
 	Node<T>* temp = head;
-	while (temp != NULL)
+	while (temp->getNext() != NULL)
 	{
 		temp->getNext();
-		head->~Node();
+		head->setNext(NULL);
 		head = temp;
+
 	}
+	head = NULL;
+	cout << "List Empty" << endl;
 }
 template<class T>
 inline int linkedlist<T>::length()
 {
 	curr = head;
-	int i = 0;
+	int i = 1;
 	while (curr->getNext() != NULL)
 	{
 		nextNode();
